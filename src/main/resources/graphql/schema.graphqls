@@ -4,6 +4,11 @@ type Coffee {
     size: Size
 }
 
+type Product {
+    id: ID!
+    productName: String
+}
+
 enum Size {
     SHORT,
     TALL,
@@ -14,10 +19,12 @@ enum Size {
 type Query {
     findAll: [Coffee]!
     findOne(id: ID): Coffee
+    findAllProducts: [Product]!
 }
 
 type Mutation {
     create(name: String,size: Size): Coffee
     update(id: ID, name: String, size: Size): Coffee
     delete(id: ID): Coffee
+    createProduct(productName: String): Product
 }
